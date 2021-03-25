@@ -47,9 +47,10 @@
   // Home
   #home {
     &-a {
-      .specials div {
+      .specials {
         border-bottom: 1px $light-color solid;
-        padding-bottom: 1rem;
+        margin-left: -3rem;
+        padding-right: 4rem;
 
         &:last-child {
           border: none;
@@ -102,11 +103,11 @@
         padding-bottom: 1rem;
         border-bottom: 1px #555 solid;
       }
-      // &:last-child {
-      //   border: none;
-      //   margin-bottom: 0;
-      //   padding-bottom: 0;
-      // }
+      &:last-child {
+        border: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
     }
 
     &-c {
