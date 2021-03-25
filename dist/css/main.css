@@ -462,8 +462,8 @@ img {
     margin-bottom: 1rem;
     padding-bottom: 1rem;
     border-bottom: 1px #555 solid; }
-  #contact-b:last-child {
-    border: none;
+  #contact-b .contact-info:last-child {
+    border-bottom: none;
     margin-bottom: 0;
     padding-bottom: 0; }
   #contact-c h1 {
