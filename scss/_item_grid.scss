@@ -6,14 +6,14 @@
 
 .item {
   position: relative;
-  background: $main-color;
+  background: #444;
   overflow: hidden;
 
   &::after {
     content: "";
     position: absolute;
     display: block;
-    background: inherit;
+    background: $main-color;
     opacity: 0.9;
     top: 0;
     left: 0;
@@ -49,7 +49,7 @@
   &-image:before {
     content: "";
     display: block;
-    padding-top: 75%;
+    padding-top: 51%;
     overflow: hidden;
   }
 
