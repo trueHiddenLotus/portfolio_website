@@ -1,5 +1,6 @@
 // Skill Matrix Section
 // --------------------
+@use 'mixins' as m;
 .c-skill-matrix { display:grid; gap:2rem; }
 .c-skill-matrix__filters { display:flex; flex-wrap:wrap; gap:.5rem; }
 .c-skill-matrix__group { border:1px solid var(--color-border); border-radius: var(--radius-md); padding:1.25rem 1.25rem 1.5rem; background: var(--color-surface-1); display:grid; gap:1rem; }
@@ -14,3 +15,6 @@
 .c-skill-details { margin:.25rem 0 0; padding-left:1.1rem; font-size:.65rem; color: var(--color-text-muted); display:grid; gap:.2rem; list-style:disc; }
 .c-skill-details[hidden] { display:none; }
 .c-skill-chip--detail { background: var(--color-surface-3); }
+
+@include m.respond(down, sm) { .c-skill-matrix__group { padding:1rem 1rem 1.25rem; } }
+@include m.respond(down, xs) { .c-skill-matrix__filters { overflow-x:auto; flex-wrap:nowrap; -webkit-overflow-scrolling:touch; } }

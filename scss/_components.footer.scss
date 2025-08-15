@@ -9,3 +9,6 @@
 .c-footer a:hover { color: var(--color-text); }
 .c-footer__bottom { display:flex; justify-content:space-between; align-items:center; padding:1rem 1.25rem; border-top:1px solid var(--color-border); font-size:.7rem; color: var(--color-text-muted); }
 @include m.respond(sm) { .c-footer__bottom { flex-direction:column; gap:.75rem; } }
+
+@include m.respond(down, md) { .c-footer__inner { grid-template-columns:1fr 1fr; } }
+@include m.respond(down, sm) { .c-footer__inner { grid-template-columns:1fr; gap:1.5rem; } }

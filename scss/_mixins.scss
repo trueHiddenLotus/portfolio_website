@@ -1,25 +1,77 @@
 // Mixins & Helpers
 // -----------------
 @use 'sass:map';
+@use 'sass:list';
+@use 'variables' as v;
 
-$breakpoints: (
-  xs: 480px,
-  sm: 640px,
-  md: 768px,
-  lg: 1024px,
-  xl: 1280px
-);
-
-@mixin respond($bp) {
-  $size: map.get($breakpoints, $bp);
-  @if $size { @media (max-width: $size) { @content; } } @else {
-    @warn 'Breakpoint '#{$bp}' not found in $breakpoints map.';
+/* Responsive media query helper
+ * Signatures:
+ *   @include respond(xs) { ... }                // max-width: xs
+ *   @include respond(down, lg) { ... }          // max-width: lg
+ *   @include respond(up, md) { ... }            // min-width: md
+ *   @include respond(between, sm, lg) { ... }   // min-width: sm and max-width: lg
+ * Notes:
+ * - Breakpoint keys sourced from v.$breakpoints (xs, sm, md, lg, xl, xxl)
+ * - Invalid keys emit a warning and output nothing.
+ */
+@mixin respond($args...) {
+  $len: list.length($args);
+  @if $len == 0 { @warn 'respond(): no arguments provided.'; }
+  @else if $len == 1 {
+    $bp: list.nth($args, 1);
+    $size: map.get(v.$breakpoints, $bp);
+    @if $size { @media (max-width: $size) { @content; } }
+    @else { @warn 'respond(): breakpoint '#{$bp}' not found.'; }
   }
+  @else if $len == 2 {
+    $dir: list.nth($args, 1);
+    $bp: list.nth($args, 2);
+    $size: map.get(v.$breakpoints, $bp);
+    @if $size {
+      @if $dir == up { @media (min-width: $size) { @content; } }
+      @else if $dir == down { @media (max-width: $size) { @content; } }
+      @else { @warn 'respond(): second-arg signature expects up|down; got '#{$dir}; }
+    }
+    @else { @warn 'respond(): breakpoint '#{$bp}' not found.'; }
+  }
+  @else if $len == 3 {
+    $mode: list.nth($args, 1);
+    $startKey: list.nth($args, 2);
+    $endKey: list.nth($args, 3);
+    $start: map.get(v.$breakpoints, $startKey);
+    $end: map.get(v.$breakpoints, $endKey);
+    @if $mode == between and $start and $end {
+      // Slightly reduce end to avoid overlap (optional precision)
+      $endAdjusted: calc(#{$end} - 0.02px);
+      @media (min-width: $start) and (max-width: $endAdjusted) { @content; }
+    }
+    @else { @warn 'respond(): expected between,start,end with valid keys.'; }
+  }
+  @else { @warn 'respond(): expects 1 to 3 arguments.'; }
 }
 
-@mixin fluid-type($min, $max, $minVW: 320, $maxVW: 1280) {
+// Legacy helper alias (max-width only) if older code used respond-max
+@mixin respond-max($bp) { @include respond($bp) { @content; } }
+
+// Container mixin
+@mixin container($size-key) {
+  $w: map.get(v.$container-widths, $size-key);
+  @if $w { max-width: $w; margin-inline:auto; }
+  @else { @warn 'container(): width key '#{$size-key}' not found.'; }
+}
+
+// Visually hide (screen reader only)
+@mixin visually-hide {
+  position:absolute !important; width:1px !important; height:1px !important; padding:0 !important; margin:-1px !important; overflow:hidden !important; clip:rect(0 0 0 0) !important; white-space:nowrap !important; border:0 !important;
+}
+
+// Fluid type scaling via clamp
+// $min, $max in rem units; viewport min/max in px
+@mixin fluid-clamp($min, $max, $minVW: 320, $maxVW: 1280) {
   font-size: clamp(#{$min}rem, calc(#{$min}rem + (#{$max - $min}) * ((100vw - #{$minVW}px) / (#{$maxVW - $minVW}))), #{$max}rem);
 }
+// Alias for backward compatibility
+@mixin fluid-type($min, $max, $minVW: 320, $maxVW: 1280) { @include fluid-clamp($min, $max, $minVW, $maxVW); }
 
 @mixin focus-ring($color: var(--color-primary)) {
   outline: 2px solid $color;

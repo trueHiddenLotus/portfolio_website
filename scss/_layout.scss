@@ -1,7 +1,9 @@
 // Layout & Section Spacing
 // ------------------------
 @use 'mixins' as m;
-.l-container { max-width: 1200px; margin-inline: auto; padding-inline: 1.25rem; }
+.l-container { @include m.container(xl); padding-inline: clamp(.9rem, 3vw, 1.5rem); }
+@include m.respond(down, lg) { .l-container { @include m.container(lg); } }
+@include m.respond(down, md) { .l-container { max-width:100%; } }
 
 // Section wrapper
 .l-section { padding-block: 4rem; position: relative; }
@@ -11,9 +13,7 @@
 @include m.respond(sm) { .l-section { padding-block: 2.25rem; } }
 
 // Grid helpers
-.l-grid { display: grid; gap: 2rem; }
-.l-grid--cols-3 { grid-template-columns: repeat(3, 1fr); }
-.l-grid--cols-4 { grid-template-columns: repeat(4, 1fr); }
-.l-grid--cols-2 { grid-template-columns: repeat(2, 1fr); }
-@include m.respond(md) { .l-grid--cols-4 { grid-template-columns: repeat(2, 1fr); } }
-@include m.respond(sm) { .l-grid--cols-3, .l-grid--cols-2 { grid-template-columns: 1fr; } }
+.l-grid { display:grid; gap:2rem; --grid-min:15rem; grid-template-columns:repeat(auto-fit, minmax(var(--grid-min), 1fr)); }
+.l-grid--dense { --grid-min:13rem; }
+@include m.respond(down, md) { .l-grid { --grid-min:13.5rem; gap:1.5rem; } }
+@include m.respond(down, sm) { .l-grid { --grid-min:100%; gap:1.25rem; } }

@@ -16,3 +16,6 @@
 .c-field.is-invalid .c-field__input { border-color: var(--color-error); }
 .c-field__message { font-size:.7rem; margin-top:.4rem; color: var(--color-text-muted); }
 .c-field.is-invalid .c-field__message { color: var(--color-error); }
+
+@include m.respond(up, lg) { .c-form--split { grid-template-columns:1fr 1fr; gap:1.5rem; } }
+@include m.respond(down, xs) { .c-field__input { padding:.7rem .75rem; } }

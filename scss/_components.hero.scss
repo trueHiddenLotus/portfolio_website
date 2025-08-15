@@ -13,3 +13,6 @@
 .c-hero__actions { display:flex; gap:1rem; flex-wrap:wrap; }
 
 @include m.respond(md) { .c-hero__inner { padding: 4rem 1rem 3rem; } }
+@include m.respond(down, md) { .c-hero { min-height:70vh; } }
+@include m.respond(down, sm) { .c-hero { min-height:62vh; } .c-hero__actions { flex-direction:column; align-items:stretch; } }
+@include m.respond(down, xs) { .c-hero__inner { padding:3.25rem .85rem 2.5rem; } }

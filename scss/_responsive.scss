@@ -1,7 +1,19 @@
 // Consolidated responsive refinements replacing legacy _media.scss
-// Uses height-based raw media queries where mixin map not applicable.
-
+// Structured: Spacing, Components, Utilities
 @use 'mixins' as m;
+
+// Section rhythm tweaks
+@include m.respond(down, md) { .l-section { padding-block:3rem; } }
+@include m.respond(down, sm) { .l-section { padding-block:2.25rem; } }
+
+// Hero fine tuning (some in component file) ultra-wide adjustments
+@include m.respond(up, xxl) { .c-hero__inner { max-width:1200px; } .c-card__title { font-size:1.2rem; } }
+
+// Forms
+@include m.respond(down, xs) { .c-form { gap:1rem; } }
+
+// Accessibility hit-target guard (ensure buttons not too small)
+@include m.respond(down, xs) { button, .c-nav__link { min-height:44px; } }
 
 // Medium breakpoint tweaks (approx former 800px rules)
 @include m.respond(lg) {

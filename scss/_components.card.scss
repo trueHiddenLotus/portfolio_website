@@ -16,3 +16,9 @@
 .c-card--elevated { @include m.elevation(2); }
 .c-card--interactive { cursor:pointer; }
 .c-card--project .c-card__title { @include m.fluid-type(1.1,1.4); }
+
+@include m.respond(down, sm) { .c-card__media { aspect-ratio:16/10; } }
+@include m.respond(down, xs) { .c-card__body { padding:.85rem .85rem 1rem; } }
+
+// Compact variant (auto-applied styling below xs already covered by media queries)
+.c-card--compact { padding:.75rem; }
