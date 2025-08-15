@@ -489,6 +489,7 @@ code, pre {
   display: flex;
   align-items: center;
   transition: background-color var(--transition-med), padding var(--transition-fast);
+  position: relative;
 }
 
 [data-theme=light] .c-nav {
@@ -552,10 +553,13 @@ code, pre {
   font-weight: 500;
   letter-spacing: 0.02em;
   text-decoration: none;
+  width: auto;
+  text-align: center;
 }
 
 .c-nav__link:hover, .c-nav__link[aria-current=page] {
   color: var(--color-text);
+  background: var(--color-surface-2);
 }
 
 .c-nav__link::after {
@@ -586,6 +590,19 @@ code, pre {
   transition: transform var(--transition-fast);
 }
 
+.c-nav__toggle {
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c-nav__toggle i {
+  pointer-events: none;
+}
+
 .c-nav__toggle.is-open {
   transform: rotate(90deg);
 }
@@ -601,31 +618,44 @@ code, pre {
 @media (max-width: 900px) {
   .c-nav__toggle {
     display: inline-flex;
+    z-index: calc(var(--z-nav-menu) + 2);
   }
   .c-nav__list {
-    position: fixed;
-    inset: 0;
+    position: absolute;
+    top: 100%;
+    right: 0.75rem;
+    left: auto;
+    min-width: clamp(220px, 70vw, 320px);
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 0.25rem;
     background: var(--color-surface-1);
-    padding: clamp(4rem, 12vh, 6rem) 2rem 2.5rem;
-    gap: 1.5rem;
-    overflow: auto; /* allow scrolling only if content taller */
-    z-index: -1;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 0.75rem 0.5rem;
+    box-shadow: var(--shadow-2);
+    max-height: 70vh;
+    overflow: auto;
     opacity: 0;
+    transform: scaleY(0.92);
+    transform-origin: top;
     visibility: hidden;
     pointer-events: none;
-    transition: opacity var(--transition-med), visibility 0s linear 0.25s;
+    transition: opacity var(--transition-med), transform var(--transition-med), visibility 0s linear 0.25s;
   }
   .c-nav__list.is-open {
-    z-index: var(--z-nav-menu);
     opacity: 1;
+    transform: scaleY(1);
     visibility: visible;
     pointer-events: auto;
-    transition: opacity var(--transition-med), visibility 0s;
+    transition: opacity var(--transition-med), transform var(--transition-med), visibility 0s;
+    z-index: var(--z-nav-menu);
   }
-  body.nav-open {
-    overflow: hidden;
+  .c-nav__link {
+    width: 100%;
+    text-align: left;
+    padding: 0.65rem 0.85rem;
+    border-radius: var(--radius-sm);
   }
 }
 @media (max-width: 360px) {
@@ -642,6 +672,7 @@ code, pre {
 @media (prefers-reduced-motion: reduce) {
   .c-nav__list {
     transition: none;
+    transform: none !important;
   }
   .c-nav__toggle {
     transition: none;
