@@ -1,0 +1,29 @@
+// Consolidated responsive refinements replacing legacy _media.scss
+// Uses height-based raw media queries where mixin map not applicable.
+
+@use 'mixins' as m;
+
+// Medium breakpoint tweaks (approx former 800px rules)
+@include m.respond(lg) {
+  .c-hero { min-height: 70vh; }
+  .c-hero__inner { padding: 4.5rem 1.1rem 3rem; }
+}
+
+// Small screens (approx former 500px rules)
+@include m.respond(sm) {
+  .c-hero { min-height: 60vh; }
+  .c-hero__inner { padding: 3.5rem 1rem 2.5rem; }
+  .c-hero__title { font-size: clamp(1.9rem, 6vw, 2.4rem); }
+  .l-grid--cols-3, .l-grid--cols-4 { grid-template-columns: 1fr; }
+  .c-card__media { aspect-ratio: 16/10; }
+  .c-footer__inner { grid-template-columns: 1fr; }
+}
+
+// Height-constrained devices (landscape phones / small laptop windows)
+@media (max-height: 580px) {
+  .c-hero__inner { padding-top: 3rem; }
+}
+@media (max-height: 330px) {
+  .c-hero__title { font-size: 1.6rem; }
+  .c-hero__inner { padding-top: 2.25rem; }
+}

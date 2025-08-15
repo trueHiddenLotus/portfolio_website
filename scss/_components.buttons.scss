@@ -1,0 +1,14 @@
+// Buttons
+// -------
+@use 'mixins' as m;
+.btn { --_bg: var(--color-primary); --_color: #fff; --_border: var(--color-primary); appearance:none; display:inline-flex; align-items:center; justify-content:center; gap:.5rem; padding:.75rem 1.25rem; font-weight:600; font-size:.9rem; letter-spacing:.02em; line-height:1; border-radius: var(--radius-sm); border:1px solid var(--_border); color:var(--_color); background: var(--_bg); cursor:pointer; position:relative; transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast); text-decoration:none; }
+.btn:hover { filter:brightness(1.08); }
+.btn:active { transform:translateY(1px); }
+.btn:focus-visible { @include m.focus-ring(); }
+
+.btn--subtle { --_bg: var(--color-surface-2); --_color: var(--color-text); --_border: var(--color-border); }
+.btn--ghost { --_bg: transparent; --_color: var(--color-text); --_border: var(--color-border); }
+.btn--outline { --_bg: transparent; --_color: var(--color-primary); --_border: var(--color-primary); }
+.btn--danger { --_bg: var(--color-error); --_color:#fff; --_border: var(--color-error); }
+.btn--sm { padding:.5rem .85rem; font-size:.75rem; }
+.btn--lg { padding:1rem 1.5rem; font-size:1rem; }

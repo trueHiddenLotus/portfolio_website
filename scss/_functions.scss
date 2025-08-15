@@ -1,0 +1,14 @@
+// Utility Functions
+// -----------------
+@function contrast-color($color, $dark: #0f1418, $light: #ffffff, $threshold: 60) {
+  @if type-of($color) != 'color' { @return $light; }
+  @if (lightness($color) > $threshold) { @return $dark; }
+  @return $light;
+}
+
+// clampScale: returns a clamp() fluid size between two breakpoints
+@function clampScale($min, $max, $minVW: 320, $maxVW: 1280) {
+  $slope: ($max - $min) / ($maxVW - $minVW) * 100;
+  $intercept: $min - ($slope * $minVW / 100);
+  @return clamp(#{$min}px, #{$intercept}px + #{$slope}vw, #{$max}px);
+}

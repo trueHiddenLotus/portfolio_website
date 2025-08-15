@@ -1,0 +1,16 @@
+// Badge / Skill Chip
+// ------------------
+@use 'mixins' as m;
+.c-badge { --_bg: var(--color-surface-2); display:inline-flex; align-items:center; gap:.4ch; background: var(--_bg); color: var(--color-text-muted); font-size:.65rem; letter-spacing:.08em; text-transform:uppercase; padding:.4rem .55rem; border-radius: var(--radius-sm); border:1px solid var(--color-border); font-weight:600; line-height:1; }
+.c-badge--primary { --_bg: rgba(0,153,255,.12); color: var(--color-primary); border-color: rgba(0,153,255,.4); }
+.c-badge--accent { --_bg: rgba(92,194,255,.12); color: var(--color-primary-accent); border-color: rgba(92,194,255,.4); }
+.c-badge--success { --_bg: rgba(46,175,110,.12); color: var(--color-success); border-color: rgba(46,175,110,.4); }
+.c-badge--warn { --_bg: rgba(255,179,71,.14); color: var(--color-warn); border-color: rgba(255,179,71,.5); }
+.c-badge--error { --_bg: rgba(255,77,97,.14); color: var(--color-error); border-color: rgba(255,77,97,.45); }
+
+// Skill chip with level dots
+.c-skill-chip { --_ring: var(--color-primary); position:relative; display:inline-flex; align-items:center; gap:.6rem; font-size:.8rem; background: var(--color-surface-2); color: var(--color-text); border:1px solid var(--color-border); padding:.55rem .85rem; border-radius: 999px; cursor:pointer; line-height:1; transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast); }
+.c-skill-chip:hover { background: var(--color-surface-3); border-color: var(--_ring); }
+.c-skill-chip:active { transform:scale(.97); }
+.c-skill-chip:focus-visible { @include m.focus-ring(var(--_ring)); }
+.c-skill-chip[data-level]::after { content: attr(data-level); position:absolute; top:-6px; right:-6px; background: var(--_ring); color:#fff; width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.55rem; font-weight:700; box-shadow:0 0 0 2px var(--color-surface-1); }

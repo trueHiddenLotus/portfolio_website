@@ -1,0 +1,19 @@
+// Layout & Section Spacing
+// ------------------------
+@use 'mixins' as m;
+.l-container { max-width: 1200px; margin-inline: auto; padding-inline: 1.25rem; }
+
+// Section wrapper
+.l-section { padding-block: 4rem; position: relative; }
+.l-section--tight { padding-block: 2rem; }
+
+@include m.respond(md) { .l-section { padding-block: 3rem; } }
+@include m.respond(sm) { .l-section { padding-block: 2.25rem; } }
+
+// Grid helpers
+.l-grid { display: grid; gap: 2rem; }
+.l-grid--cols-3 { grid-template-columns: repeat(3, 1fr); }
+.l-grid--cols-4 { grid-template-columns: repeat(4, 1fr); }
+.l-grid--cols-2 { grid-template-columns: repeat(2, 1fr); }
+@include m.respond(md) { .l-grid--cols-4 { grid-template-columns: repeat(2, 1fr); } }
+@include m.respond(sm) { .l-grid--cols-3, .l-grid--cols-2 { grid-template-columns: 1fr; } }

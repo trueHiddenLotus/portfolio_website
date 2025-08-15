@@ -1,0 +1,14 @@
+// Accordion Component
+// -------------------
+@use 'mixins' as m;
+.c-accordion { border:1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface-1); overflow:hidden; }
+.c-accordion + .c-accordion { margin-top:1rem; }
+
+.c-accordion__item + .c-accordion__item { border-top:1px solid var(--color-border); }
+.c-accordion__button { all:unset; display:flex; width:100%; align-items:center; justify-content:space-between; padding:.85rem 1rem; cursor:pointer; font-weight:500; font-size:.95rem; color: var(--color-text); }
+.c-accordion__button:hover { background: var(--color-surface-2); }
+.c-accordion__button:focus-visible { @include m.focus-ring(); }
+
+.c-accordion__panel { max-height:0; overflow:hidden; transition:max-height var(--transition-med) ease; }
+.c-accordion__panel-inner { padding:0 1rem 1rem; font-size:.85rem; color: var(--color-text-muted); }
+.c-accordion__item.is-open .c-accordion__panel { max-height:400px; }

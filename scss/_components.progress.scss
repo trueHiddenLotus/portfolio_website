@@ -1,0 +1,8 @@
+// Progress / Skill Bars
+// ---------------------
+@use 'mixins' as m;
+.c-progress { --_bg: var(--color-surface-2); --_fill: var(--color-primary); position:relative; height:10px; background: var(--_bg); border-radius: var(--radius-sm); overflow:hidden; }
+.c-progress__bar { position:absolute; inset:0; width:var(--value,0%); background: var(--_fill); transition: width 1s ease; }
+.c-progress[role="progressbar"] { outline:none; }
+.c-progress[role="progressbar"]:focus-visible { @include m.focus-ring(var(--color-primary)); }
+.c-progress__label { font-size:.7rem; text-transform:uppercase; letter-spacing:.1em; color: var(--color-text-muted); margin-bottom:.25rem; display:block; }

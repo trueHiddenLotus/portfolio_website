@@ -1,122 +1,612 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Dosis&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
-
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-
-  <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/main.css">
-
+  <!-- New compiled stylesheet (from main.scss -> dist/css/style.css) -->
+  <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-
-  <title>Jermaine Roberts | Designer & Developer </title>
+  <title>Jermaine Roberts | Full Stack Engineer & Designer</title>
+  <style>/* Critical minimal styles to avoid FOUC */html{opacity:1;transition:background-color .3s;}body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;} .no-js-hide{display:none!important}</style>
+  <script>document.documentElement.classList.remove('no-js');</script>
 </head>
-<body>
-  <!-- Header -->
-  <header id="header-home">
-    <div class="container">
-      <nav id="main-nav">
-        <img src="img/jermainelogo1.png" alt="MY portfolio" id="logo">
-        <ul>
-          <li><a href="index.html" class="current">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="work.html">Work</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      <div class="header-content">
-        <h1>I AM Jermaine The 
-          <span class="txt-type" data-wait="3000" data-words='["Giver", "Driven", "Passionate", "Designer", "Creator", "Idea"]'>
-          </span>
-        </h1>
-        <p class="lead">
-          I specialize in Graphic Design and Web Development.
-        </p>
-        <a href="work.html" class="btn-light">View My Work</a>
+<body class="is-modern">
+  <!-- Modern Navigation -->
+  <nav class="c-nav" aria-label="Primary">
+    <div class="c-nav__inner">
+      <a href="index.html" class="c-nav__brand" aria-label="Homepage">
+        <img src="img/jermainelogo1.png" alt="Jermaine Logo" class="c-nav__logo">
+        <span>Jermaine</span>
+      </a>
+      <button class="c-nav__toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Menu"><i class="fas fa-bars"></i></button>
+      <ul class="c-nav__list" id="primaryNav">
+        <li><a class="c-nav__link" href="#projects" aria-current="page">Projects</a></li>
+        <li><a class="c-nav__link" href="#skills">Skills</a></li>
+        <li><a class="c-nav__link" href="#experience">Experience</a></li>
+        <li><a class="c-nav__link" href="#contact" class="is-active">Contact</a></li>
+      </ul>
+      <button id="themeToggle" class="theme-toggle-btn" type="button" aria-label="Toggle theme"><i class="fas fa-adjust"></i><span class="u-visually-hidden">Toggle dark mode</span></button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="c-hero" id="hero">
+    <div class="c-hero__bg" aria-hidden="true"></div>
+    <div class="c-hero__overlay" aria-hidden="true"></div>
+    <div class="c-hero__inner a-reveal">
+      <p class="c-hero__kicker">Full Stack Engineer • UI/UX • Mobile</p>
+      <h1 class="c-hero__title">Building resilient, user-focused systems</h1>
+      <p class="c-hero__subtitle">I architect secure backends, craft performant frontends, and design thoughtful user experiences. From Node.js APIs & payment integrity to accessible React interfaces, I bring disciplined engineering and pragmatic creativity.</p>
+      <div class="c-hero__actions">
+        <a href="#projects" class="btn">View Projects</a>
+        <a href="#contact" class="btn btn--outline">Get In Touch</a>
       </div>
+      <div style="margin-top:2rem;font-size:.85rem;letter-spacing:.05em;color:var(--color-text-muted)">Currently exploring <strong>advanced theming</strong>, <strong>SQLite mobile data layers</strong>, and <strong>resilient payment flows</strong>.</div>
     </div>
   </header>
 
-  <!-- Section A: Specialize-->
-  <section id="home-a" class="text-center py-2">
-    <div class="container">
-      <h2 class="section-title">I Specialize In</h2>
-      <div class="bottom-line"></div>
-      <p class="lead">
-        HTML, CSS, JavaScript, php, as well as creating digital masterpieces and design layouts for websites and mobile applications
-      </p>
-      <div class="specials">
-        <img class="logo-code1" src="img/Daco_4866189.png" alt="">
-        <img class="logo-code1" src="img/Daco_4866189-1.png" alt="">
-        <img class="logo-code1" src="img/kisspng-logo-php-image-mysql-computer-icons-php-development-symphony-solutions-5bac1a8d190676.4394570015380056451025.png" alt="">
+  <!-- Featured Projects -->
+  <section class="l-section" id="projects" aria-labelledby="projects-title">
+    <div class="l-container a-reveal">
+      <h2 id="projects-title">Featured Projects</h2>
+      <div class="l-grid l-grid--cols-3" style="margin-top:2rem">
+        <article class="c-card c-card--project a-reveal" tabindex="0">
+          <div class="c-card__media"><img src="img/project1.jpg" alt="E-commerce dashboard screenshot"></div>
+            <div class="c-card__body">
+              <h3 class="c-card__title">Commerce Integrity API</h3>
+              <ul class="c-card__tags">
+                <li class="c-badge c-badge--primary">Node.js</li>
+                <li class="c-badge c-badge--accent">JWT</li>
+                <li class="c-badge c-badge--success">PayPal</li>
+              </ul>
+              <p class="c-card__excerpt">Versioned Express API with strict server-side price normalization & replay protection logging.</p>
+              <button class="btn btn--subtle btn--sm" data-modal="proj1">Details</button>
+            </div>
+        </article>
+        <article class="c-card c-card--project a-reveal" tabindex="0">
+          <div class="c-card__media"><img src="img/project2.jpg" alt="React interface"></div>
+            <div class="c-card__body">
+              <h3 class="c-card__title">Adaptive Checkout UI</h3>
+              <ul class="c-card__tags">
+                <li class="c-badge c-badge--primary">React</li>
+                <li class="c-badge c-badge--accent">Redux</li>
+                <li class="c-badge c-badge--warn">UX</li>
+              </ul>
+              <p class="c-card__excerpt">Guarded routing, optimistic toasts, and accessible forms with feature-flag gating.</p>
+              <button class="btn btn--subtle btn--sm" data-modal="proj2">Details</button>
+            </div>
+        </article>
+        <article class="c-card c-card--project a-reveal" tabindex="0">
+          <div class="c-card__media"><img src="img/project3.jpg" alt="Android inventory app"></div>
+            <div class="c-card__body">
+              <h3 class="c-card__title">Inventory Mobile DB</h3>
+              <ul class="c-card__tags">
+                <li class="c-badge c-badge--primary">Android</li>
+                <li class="c-badge c-badge--accent">SQLite</li>
+                <li class="c-badge c-badge--success">Data</li>
+              </ul>
+              <p class="c-card__excerpt">SQLiteOpenHelper schema with cascading deletes & indexed search queries.</p>
+              <div style="display:flex; gap:.5rem; flex-wrap:wrap;">
+                <button class="btn btn--subtle btn--sm" data-modal="proj3">Details</button>
+                <a class="btn btn--ghost btn--sm" href="https://github.com/trueHiddenLotus/warehouseInventoryApp" target="_blank" rel="noopener" aria-label="View Inventory Mobile DB source on GitHub">GitHub</a>
+              </div>
+            </div>
+        </article>
+      </div>
+      <!-- Added legacy gallery projects -->
+      <h3 style="margin-top:3rem">More Projects</h3>
+      <div class="l-grid l-grid--cols-3" style="margin-top:1.5rem">
+        <article class="c-card c-card--project a-reveal" tabindex="0">
+          <div class="c-card__media"><img src="img/items/project1.png" alt="Project 1 screenshot"></div>
+          <div class="c-card__body">
+            <h3 class="c-card__title">Project 1</h3>
+            <ul class="c-card__tags"><li class="c-badge c-badge--primary">Website</li><li class="c-badge c-badge--accent">Design</li></ul>
+            <p class="c-card__excerpt">Website Design</p>
+            <a class="btn btn--subtle btn--sm" href="https://hungry-wilson-33f27e.netlify.app" target="_blank" rel="noopener">Visit</a>
+          </div>
+        </article>
+        <article class="c-card c-card--project a-reveal" tabindex="0">
+          <div class="c-card__media"><img src="img/items/project2.png" alt="Overlay menu demo screenshot"></div>
+          <div class="c-card__body">
+            <h3 class="c-card__title">Overlay Menu</h3>
+            <ul class="c-card__tags"><li class="c-badge c-badge--primary">Menu</li><li class="c-badge c-badge--accent">Design</li></ul>
+            <p class="c-card__excerpt">Menu Design</p>
+            <a class="btn btn--subtle btn--sm" href="https://eager-brahmagupta-2e1bf6.netlify.app" target="_blank" rel="noopener">Visit</a>
+          </div>
+        </article>
+        <article class="c-card c-card--project a-reveal" tabindex="0">
+          <div class="c-card__media"><img src="img/items/project3.png" alt="Project 3 website screenshot"></div>
+          <div class="c-card__body">
+            <h3 class="c-card__title">Project 3</h3>
+            <ul class="c-card__tags"><li class="c-badge c-badge--primary">Website</li><li class="c-badge c-badge--accent">Design</li></ul>
+            <p class="c-card__excerpt">Website Design</p>
+            <a class="btn btn--subtle btn--sm" href="https://gallant-lichterman-0feb39.netlify.app" target="_blank" rel="noopener">Visit</a>
+          </div>
+        </article>
+        <article class="c-card c-card--project a-reveal" tabindex="0">
+          <div class="c-card__media"><img src="img/items/project4.png" alt="Presentation website screenshot"></div>
+          <div class="c-card__body">
+            <h3 class="c-card__title">Presentation Website</h3>
+            <ul class="c-card__tags"><li class="c-badge c-badge--primary">Website</li><li class="c-badge c-badge--accent">Design</li></ul>
+            <p class="c-card__excerpt">Website Design</p>
+            <a class="btn btn--subtle btn--sm" href="https://dreamy-murdock-420fe9.netlify.app" target="_blank" rel="noopener">Visit</a>
+          </div>
+        </article>
+        <article class="c-card c-card--project a-reveal" tabindex="0">
+          <div class="c-card__media"><img src="img/items/project5.png" alt="Resume timeline UI screenshot"></div>
+          <div class="c-card__body">
+            <h3 class="c-card__title">Resume Timeline</h3>
+            <ul class="c-card__tags"><li class="c-badge c-badge--primary">Resume</li><li class="c-badge c-badge--accent">Design</li></ul>
+            <p class="c-card__excerpt">Resume Design</p>
+            <a class="btn btn--subtle btn--sm" href="https://clever-northcutt-0406db.netlify.app" target="_blank" rel="noopener">Visit</a>
+          </div>
+        </article>
+        <article class="c-card c-card--project a-reveal" tabindex="0">
+          <div class="c-card__media"><img src="img/items/project6.png" alt="News grid site screenshot"></div>
+          <div class="c-card__body">
+            <h3 class="c-card__title">News Grid Site</h3>
+            <ul class="c-card__tags"><li class="c-badge c-badge--primary">News</li><li class="c-badge c-badge--accent">Grid</li></ul>
+            <p class="c-card__excerpt">Website Design</p>
+            <a class="btn btn--subtle btn--sm" href="https://gracious-hamilton-4839e7.netlify.app" target="_blank" rel="noopener">Visit</a>
+          </div>
+        </article>
+        <article class="c-card c-card--project a-reveal" tabindex="0">
+          <div class="c-card__media"><img src="img/items/project7.png" alt="Web design concept screenshot"></div>
+          <div class="c-card__body">
+            <h3 class="c-card__title">Web Design Concept</h3>
+            <ul class="c-card__tags"><li class="c-badge c-badge--primary">Concept</li><li class="c-badge c-badge--accent">Design</li></ul>
+            <p class="c-card__excerpt">Website Design</p>
+            <a class="btn btn--subtle btn--sm" href="https://heuristic-newton-4c0604.netlify.app" target="_blank" rel="noopener">Visit</a>
+          </div>
+        </article>
+        <article class="c-card c-card--project a-reveal" tabindex="0">
+          <div class="c-card__media"><img src="img/items/project8.png" alt="One page scroll design screenshot"></div>
+          <div class="c-card__body">
+            <h3 class="c-card__title">One Page Scroll</h3>
+            <ul class="c-card__tags"><li class="c-badge c-badge--primary">OnePage</li><li class="c-badge c-badge--accent">Scroll</li></ul>
+            <p class="c-card__excerpt">Website Design</p>
+            <a class="btn btn--subtle btn--sm" href="https://trainingapp.onrender.com/" target="_blank" rel="noopener">Visit</a>
+          </div>
+        </article>
+        <article class="c-card c-card--project a-reveal" tabindex="0">
+          <div class="c-card__media"><img src="img/items/project9.png" alt="Ecommerce design screenshot"></div>
+          <div class="c-card__body">
+            <h3 class="c-card__title">Ecommerce Design</h3>
+            <ul class="c-card__tags"><li class="c-badge c-badge--primary">Ecommerce</li><li class="c-badge c-badge--accent">Design</li></ul>
+            <p class="c-card__excerpt">Website Design</p>
+            <a class="btn btn--subtle btn--sm" href="https://thehandshakestore.herokuapp.com/" target="_blank" rel="noopener">Visit</a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
-  
-  <!-- Section A: Process -->
-  <section id="home-c" class="text-center py2">
-    <div class="container">
-      <h2 class='sectiion-title'>
-        My Creation Process
-      </h2>
-      <div class="bottom-line"></div>
-      <p class="lead">
-        Lets Talk <br><br>
-        All of my work is designed for a specific purpose that it is intended to fulfill. Once I know the reason why my services are needed, I then create a step by step process to ensure an end result that is effective in causing the desired effect that my clients want to have.
-      </p>
-      <div class="process">
-        <div>
-          <i class="fas fa-file-alt fa-4x process-icon my-2">
-            <div class="process-step">1</div>
-          </i>
-          <h3>Discuss The Project</h3>
-          <p>Communication is the key here, if you are seeking my help it is understood that you need is somebody who will listen to what have to say. I can garantee that I will have ears that will take your words and get started buiding out your vision. In this setp we will both reveal what result you are expecting to get together.
-          </p>          
-        </div>        
-        <div>
-          <i class="fas fa-file-alt fa-4x process-icon my-2">
-            <div class="process-step">2</div>
-          </i>
-          <h3>Brainstorming ^ Concept</h3>
-          <p>This is the dawing board step in creating your project. Here is where we will design peices of the project.  </p>          
+  <!-- Skill Matrix -->
+  <section class="l-section" id="skills" aria-labelledby="skills-title">
+    <div class="l-container c-skill-matrix a-reveal">
+      <h2 id="skills-title">Skill Matrix</h2>
+      <div class="c-skill-matrix__filters" role="toolbar" aria-label="Filter skills">
+        <button class="c-skill-chip" data-filter="all" data-level="∞">All</button>
+        <button class="c-skill-chip" data-filter="backend" data-level="5">Backend</button>
+        <button class="c-skill-chip" data-filter="frontend" data-level="5">Frontend</button>
+        <button class="c-skill-chip" data-filter="payments" data-level="5">Payments</button>
+        <button class="c-skill-chip" data-filter="auth" data-level="5">Auth</button>
+        <button class="c-skill-chip" data-filter="data" data-level="5">Data</button>
+        <button class="c-skill-chip" data-filter="mobile" data-level="4">Mobile</button>
+        <button class="c-skill-chip" data-filter="devops" data-level="3">DevOps</button>
+        <button class="c-skill-chip" data-filter="quality" data-level="3">Quality</button>
+        <button class="c-skill-chip" data-filter="ux" data-level="4">UX</button>
+        <button class="c-skill-chip" data-filter="state" data-level="5">State</button>
+        <button class="c-skill-chip" data-filter="tooling" data-level="4">Tooling</button>
+      </div>
+      <div class="l-grid l-grid--cols-3" style="margin-top:1.5rem" id="skillPrimary">
+        <!-- Backend Engineering -->
+        <div class="c-skill-matrix__group" data-domain="backend">
+          <h3 class="c-skill-matrix__group-title">Backend Engineering</h3>
+          <div class="c-skill-matrix__chips">
+            <button class="c-skill-chip" data-level="5">Node.js</button>
+            <button class="c-skill-chip" data-level="5">Express REST</button>
+            <button class="c-skill-chip" data-level="5">Mongoose</button>
+            <button class="c-skill-chip" data-level="5">JWT/Auth Flow</button>
+            <button class="c-skill-chip" data-level="4">Pricing Norm.</button>
+            <button class="c-skill-chip" data-level="4">File Uploads</button>
+            <button class="c-skill-chip" data-level="4">Email (SendGrid)</button>
+            <button class="c-skill-chip" data-level="4">Feature Flags</button>
+            <button class="c-skill-chip" data-level="4">Seeder Utils</button>
+            <button class="c-skill-chip" data-level="3">USPS Proto</button>
+            <button class="c-skill-chip c-skill-chip--detail" data-detail-target="backend-details" aria-expanded="false">More</button>
+          </div>
+          <ul id="backend-details" class="c-skill-details" hidden>
+            <li>Replay protection logging</li>
+            <li>Incremental response evolution</li>
+            <li>JSON error surface standardization</li>
+            <li>Monetary rounding strategy</li>
+            <li>Route collision debugging</li>
+          </ul>
         </div>
-        <div>
-          <i class="fas fa-object-ungroup fa-4x process-icon my-2">
-            <div class="process-step">3</div>
-          </i>
-          <h3>Finalizing</h3>
-          <p>The pecies of your project have been fully built and will now be put together somewhat like a puzzel. Testing will be done to ensure that the build is clean with no bugs.</p>          
+        <!-- Frontend Engineering -->
+        <div class="c-skill-matrix__group" data-domain="frontend">
+          <h3 class="c-skill-matrix__group-title">Frontend Engineering</h3>
+          <div class="c-skill-matrix__chips">
+            <button class="c-skill-chip" data-level="5">React</button>
+            <button class="c-skill-chip" data-level="5">Redux Toolkit</button>
+            <button class="c-skill-chip" data-level="4">Draft.js</button>
+            <button class="c-skill-chip" data-level="4">Infinite Scroll</button>
+            <button class="c-skill-chip" data-level="4">Theming</button>
+            <button class="c-skill-chip" data-level="4">Optimistic UX</button>
+            <button class="c-skill-chip" data-level="4">SDK Lifecycle</button>
+            <button class="c-skill-chip" data-level="3">Accessibility</button>
+            <button class="c-skill-chip" data-level="3">Perf Shaping</button>
+            <button class="c-skill-chip c-skill-chip--detail" data-detail-target="frontend-details" aria-expanded="false">More</button>
+          </div>
+          <ul id="frontend-details" class="c-skill-details" hidden>
+            <li>Intl currency formatting</li>
+            <li>Conditional feature disabling</li>
+            <li>Rich media galleries</li>
+            <li>LocalStorage hydration patterns</li>
+            <li>Defensive optional chaining</li>
+          </ul>
         </div>
-        <div>
-          <i class="fas fa-thumbs-up fa-4x process-icon my-2">
-            <div class="process-step">4</div>
-          </i>
-          <h3>Interaction</h3>
-          <p>Now the project is complete, and will be released to you for testing, interaction, and appoval. </p>          
-        </div>  
+        <!-- Payments & E-commerce -->
+        <div class="c-skill-matrix__group" data-domain="payments">
+          <h3 class="c-skill-matrix__group-title">Payments & E-commerce</h3>
+            <div class="c-skill-matrix__chips">
+              <button class="c-skill-chip" data-level="5">Cart Lifecycle</button>
+              <button class="c-skill-chip" data-level="5">Order Idempotency</button>
+              <button class="c-skill-chip" data-level="4">Tax/Shipping</button>
+              <button class="c-skill-chip" data-level="4">PayPal Capture</button>
+              <button class="c-skill-chip" data-level="4">Monetary Guard</button>
+              <button class="c-skill-chip" data-level="3">Reconciliation</button>
+              <button class="c-skill-chip" data-level="3">Payload Fallbacks</button>
+              <button class="c-skill-chip c-skill-chip--detail" data-detail-target="payments-details" aria-expanded="false">More</button>
+            </div>
+            <ul id="payments-details" class="c-skill-details" hidden>
+              <li>Transaction uniqueness</li>
+              <li>Boundary protection</li>
+              <li>Checkout state purge</li>
+              <li>Mismatched payload handling</li>
+              <li>Price integrity validation</li>
+            </ul>
+        </div>
+        <!-- Authentication & Authorization -->
+        <div class="c-skill-matrix__group" data-domain="auth">
+          <h3 class="c-skill-matrix__group-title">Authentication & Authorization</h3>
+          <div class="c-skill-matrix__chips">
+            <button class="c-skill-chip" data-level="5">JWT Issue/Verify</button>
+            <button class="c-skill-chip" data-level="4">Protected Routes</button>
+            <button class="c-skill-chip" data-level="4">Session vs Guest</button>
+            <button class="c-skill-chip" data-level="4">Ownership Gating</button>
+            <button class="c-skill-chip" data-level="3">Conditional UI</button>
+            <button class="c-skill-chip c-skill-chip--detail" data-detail-target="auth-details" aria-expanded="false">More</button>
+          </div>
+          <ul id="auth-details" class="c-skill-details" hidden>
+            <li>Bcrypt hashing flows</li>
+            <li>Refresh token patterns</li>
+            <li>Role-based resource access</li>
+            <li>Frontend redirect guards</li>
+            <li>Session state segregation</li>
+          </ul>
+        </div>
+        <!-- Data Modeling & Persistence -->
+        <div class="c-skill-matrix__group" data-domain="data">
+          <h3 class="c-skill-matrix__group-title">Data Modeling & Persistence</h3>
+          <div class="c-skill-matrix__chips">
+            <button class="c-skill-chip" data-level="5">Mongo Modeling</button>
+            <button class="c-skill-chip" data-level="5">Index Strategy</button>
+            <button class="c-skill-chip" data-level="4">Seeding</button>
+            <button class="c-skill-chip" data-level="4">SQLite Schema</button>
+            <button class="c-skill-chip" data-level="4">Migrations</button>
+            <button class="c-skill-chip" data-level="3">Cursor Mapping</button>
+            <button class="c-skill-chip" data-level="3">Parameter Binding</button>
+            <button class="c-skill-chip c-skill-chip--detail" data-detail-target="data-details" aria-expanded="false">More</button>
+          </div>
+          <ul id="data-details" class="c-skill-details" hidden>
+            <li>Foreign keys & cascading</li>
+            <li>JOIN / LIKE queries</li>
+            <li>Denormalization choices</li>
+            <li>Lookup table seeding</li>
+            <li>Nullable field strategies</li>
+          </ul>
+        </div>
+        <!-- Mobile (Android) -->
+        <div class="c-skill-matrix__group" data-domain="mobile">
+          <h3 class="c-skill-matrix__group-title">Mobile (Android)</h3>
+          <div class="c-skill-matrix__chips">
+            <button class="c-skill-chip" data-level="4">Android Java</button>
+            <button class="c-skill-chip" data-level="4">SQLiteOpenHelper</button>
+            <button class="c-skill-chip" data-level="4">Inventory Data</button>
+            <button class="c-skill-chip" data-level="3">Query Debugging</button>
+            <button class="c-skill-chip" data-level="3">Soft Deletion</button>
+            <button class="c-skill-chip c-skill-chip--detail" data-detail-target="mobile-details" aria-expanded="false">More</button>
+          </div>
+          <ul id="mobile-details" class="c-skill-details" hidden>
+            <li>DTO layer separation</li>
+            <li>Relational reassignment</li>
+            <li>Preloaded lookup tables</li>
+            <li>Location-based filtering</li>
+            <li>Performance indexing</li>
+          </ul>
+        </div>
+        <!-- Deployment & DevOps -->
+        <div class="c-skill-matrix__group" data-domain="devops">
+          <h3 class="c-skill-matrix__group-title">Deployment & DevOps</h3>
+          <div class="c-skill-matrix__chips">
+            <button class="c-skill-chip" data-level="3">Heroku Deploy</button>
+            <button class="c-skill-chip" data-level="3">Procfile</button>
+            <button class="c-skill-chip" data-level="3">Env Gating</button>
+            <button class="c-skill-chip" data-level="3">Asset Strategy</button>
+            <button class="c-skill-chip" data-level="3">Prod Logging</button>
+            <button class="c-skill-chip c-skill-chip--detail" data-detail-target="devops-details" aria-expanded="false">More</button>
+          </div>
+          <ul id="devops-details" class="c-skill-details" hidden>
+            <li>Buildpack config</li>
+            <li>heroku-postbuild script</li>
+            <li>Node version pinning</li>
+            <li>Concurrent dev workflow</li>
+            <li>Selective log emission</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Practices & Architecture Accordion -->
+      <div class="c-accordion c-skill-matrix__group" id="practicesArch">
+        <button class="c-accordion__button" aria-expanded="false">Practices & Architecture</button>
+        <div class="c-accordion__panel" hidden>
+          <div class="c-accordion__panel-inner" style="padding-top:1rem; display:grid; gap:1.25rem;">
+            <!-- Reliability & Observability -->
+            <div class="c-skill-matrix__group" data-domain="quality">
+              <h4 class="c-skill-matrix__group-title">Reliability & Observability</h4>
+              <div class="c-skill-matrix__chips">
+                <button class="c-skill-chip" data-level="4">Defensive Checks</button>
+                <button class="c-skill-chip" data-level="4">Error Taxonomy</button>
+                <button class="c-skill-chip" data-level="3">Post-Mutation Sync</button>
+                <button class="c-skill-chip" data-level="3">Action Flow Logs</button>
+                <button class="c-skill-chip" data-level="3">Minimal Refetch</button>
+              </div>
+            </div>
+            <!-- Secure Data Handling -->
+            <div class="c-skill-matrix__group" data-domain="security">
+              <h4 class="c-skill-matrix__group-title">Secure Data Handling</h4>
+              <div class="c-skill-matrix__chips">
+                <button class="c-skill-chip" data-level="5">Trust Boundaries</button>
+                <button class="c-skill-chip" data-level="4">Sanitization</button>
+                <button class="c-skill-chip" data-level="4">Server Recompute</button>
+                <button class="c-skill-chip" data-level="3">Minimal Exposure</button>
+                <button class="c-skill-chip" data-level="3">Tamper Guards</button>
+              </div>
+            </div>
+            <!-- UI / UX Engineering -->
+            <div class="c-skill-matrix__group" data-domain="ux">
+              <h4 class="c-skill-matrix__group-title">UI / UX Engineering</h4>
+              <div class="c-skill-matrix__chips">
+                <button class="c-skill-chip" data-level="4">Spacing Rhythm</button>
+                <button class="c-skill-chip" data-level="4">Dark/Light</button>
+                <button class="c-skill-chip" data-level="4">Progressive Reveal</button>
+                <button class="c-skill-chip" data-level="3">Real-time Feedback</button>
+                <button class="c-skill-chip" data-level="3">Empty States</button>
+              </div>
+            </div>
+            <!-- State Management & Data Flow -->
+            <div class="c-skill-matrix__group" data-domain="state">
+              <h4 class="c-skill-matrix__group-title">State Management & Data Flow</h4>
+              <div class="c-skill-matrix__chips">
+                <button class="c-skill-chip" data-level="5">Flag-driven UI</button>
+                <button class="c-skill-chip" data-level="4">Idempotent Flows</button>
+                <button class="c-skill-chip" data-level="4">Cross-Slice Sync</button>
+                <button class="c-skill-chip" data-level="3">Hydration Order</button>
+                <button class="c-skill-chip" data-level="3">Thunk Unwrap</button>
+              </div>
+            </div>
+            <!-- Code Quality & Refactoring -->
+            <div class="c-skill-matrix__group" data-domain="quality">
+              <h4 class="c-skill-matrix__group-title">Code Quality & Refactoring</h4>
+              <div class="c-skill-matrix__chips">
+                <button class="c-skill-chip" data-level="4">Dead Code Cleanup</button>
+                <button class="c-skill-chip" data-level="4">Reversible Refactors</button>
+                <button class="c-skill-chip" data-level="3">Scoped Changes</button>
+                <button class="c-skill-chip" data-level="3">Polling Removal</button>
+                <button class="c-skill-chip" data-level="3">Regression Guard</button>
+              </div>
+            </div>
+            <!-- Tooling & Process -->
+            <div class="c-skill-matrix__group" data-domain="tooling">
+              <h4 class="c-skill-matrix__group-title">Tooling & Process</h4>
+              <div class="c-skill-matrix__chips">
+                <button class="c-skill-chip" data-level="4">Git Workflow</button>
+                <button class="c-skill-chip" data-level="4">Concurrent Dev</button>
+                <button class="c-skill-chip" data-level="3">Peer Conflict</button>
+                <button class="c-skill-chip" data-level="3">Procfile Deploy</button>
+                <button class="c-skill-chip" data-level="3">Seed Pipeline</button>
+              </div>
+            </div>
+            <!-- Package & Dependency Mgmt -->
+            <div class="c-skill-matrix__group" data-domain="tooling">
+              <h4 class="c-skill-matrix__group-title">Package & Dependency</h4>
+              <div class="c-skill-matrix__chips">
+                <button class="c-skill-chip" data-level="4">Peer Diagnosis</button>
+                <button class="c-skill-chip" data-level="4">Version Strategy</button>
+                <button class="c-skill-chip" data-level="3">Env Engines</button>
+                <button class="c-skill-chip" data-level="3">Segregated Deps</button>
+                <button class="c-skill-chip" data-level="3">Upgrade Guardrails</button>
+              </div>
+            </div>
+            <!-- Testing & Quality Awareness -->
+            <div class="c-skill-matrix__group" data-domain="quality">
+              <h4 class="c-skill-matrix__group-title">Testing & Quality</h4>
+              <div class="c-skill-matrix__chips">
+                <button class="c-skill-chip" data-level="3">RTL / Jest DOM</button>
+                <button class="c-skill-chip" data-level="3">Snapshot Setup</button>
+                <button class="c-skill-chip" data-level="3">Mock Strategy</button>
+                <button class="c-skill-chip" data-level="3">Service Call Mocks</button>
+                <button class="c-skill-chip" data-level="3">Test Env Config</button>
+              </div>
+            </div>
+            <!-- Cross-Cutting Practices -->
+            <div class="c-skill-matrix__group" data-domain="architecture">
+              <h4 class="c-skill-matrix__group-title">Cross-Cutting Practices</h4>
+              <div class="c-skill-matrix__chips">
+                <button class="c-skill-chip" data-level="5">Separation Concerns</button>
+                <button class="c-skill-chip" data-level="5">Idempotency Guards</button>
+                <button class="c-skill-chip" data-level="4">Rollback Ready</button>
+                <button class="c-skill-chip" data-level="4">Performance-first</button>
+                <button class="c-skill-chip" data-level="3">Trust Boundaries</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer-->
-  <footer id="main-footer">
-    <div class="footer-content container">
-      <p>Copyright &copy; 2020. All Rights Reserved</p>
-      <div class="social">
-        <i class="fab fa-twitter"></i>
-        <i class="fab fa-facebook"></i>
-        <i class="fab fa-instagram"></i>
-        <i class="fab fa-linkedin"></i>
+  <!-- Experience Timeline -->
+  <section class="l-section" id="experience" aria-labelledby="exp-title">
+    <div class="l-container a-reveal">
+      <h2 id="exp-title">Experience Timeline</h2>
+      <ol class="c-timeline" aria-label="Professional timeline">
+        <li class="c-timeline__item a-reveal">
+          <span class="c-timeline__node" aria-hidden="true"></span>
+          <h3 class="c-timeline__title">API Reliability Enhancements</h3>
+          <div class="c-timeline__meta">Backend • 2025</div>
+          <p class="c-timeline__body">Implemented transaction replay protection & progressive response evolution while maintaining backward compatibility.</p>
+        </li>
+        <li class="c-timeline__item a-reveal">
+          <span class="c-timeline__node" aria-hidden="true"></span>
+          <h3 class="c-timeline__title">Checkout UX Modernization</h3>
+          <div class="c-timeline__meta">Frontend • 2024</div>
+          <p class="c-timeline__body">Migrated legacy Redux to RTK, added guarded routing & optimistic feedback patterns for faster perceived performance.</p>
+        </li>
+        <li class="c-timeline__item a-reveal">
+          <span class="c-timeline__node" aria-hidden="true"></span>
+            <h3 class="c-timeline__title">Mobile Inventory Data Layer</h3>
+            <div class="c-timeline__meta">Android • 2024</div>
+            <p class="c-timeline__body">Built normalized SQLite schema with versioned migrations, cascading deletes & parameter-bound queries.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Tooling & Practices Accordion -->
+  <section class="l-section" id="practices" aria-labelledby="practices-title">
+    <div class="l-container a-reveal">
+      <h2 id="practices-title">Tooling & Practices</h2>
+      <div class="c-accordion" id="practicesAcc">
+        <div class="c-accordion__item">
+          <button class="c-accordion__button" aria-expanded="false">Reliability & Observability <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+          <div class="c-accordion__panel" hidden>
+            <div class="c-accordion__panel-inner">Structured logging (correlated phases), minimized refetch strategy, defensive shape checks & unified error surface.</div>
+          </div>
+        </div>
+        <div class="c-accordion__item">
+          <button class="c-accordion__button" aria-expanded="false">Secure Data Handling <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+          <div class="c-accordion__panel" hidden>
+            <div class="c-accordion__panel-inner">Server authoritative totals, sanitization of external payment payloads, idempotent capture flows.</div>
+          </div>
+        </div>
+        <div class="c-accordion__item">
+          <button class="c-accordion__button" aria-expanded="false">Performance & UX <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+          <div class="c-accordion__panel" hidden>
+            <div class="c-accordion__panel-inner">Fluid typography, progressive reveal, reduced-motion safety, late formatting of currency values.</div>
+          </div>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="l-section" id="contact" aria-labelledby="contact-title">
+    <div class="l-container a-reveal">
+      <h2 id="contact-title">Contact</h2>
+      <form class="c-form" novalidate>
+        <div class="c-field">
+          <input class="c-field__input" type="text" id="name" name="name" placeholder=" " required>
+          <label class="c-field__label" for="name">Name</label>
+          <div class="c-field__message">Required</div>
+        </div>
+        <div class="c-field">
+          <input class="c-field__input" type="email" id="email" name="email" placeholder=" " required>
+          <label class="c-field__label" for="email">Email</label>
+          <div class="c-field__message">We will not share your email.</div>
+        </div>
+        <div class="c-field">
+          <textarea class="c-field__input" id="message" name="message" placeholder=" " rows="4" required></textarea>
+          <label class="c-field__label" for="message">Message</label>
+          <div class="c-field__message">Tell me about your project.</div>
+        </div>
+        <button class="btn" type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Modern Footer -->
+  <footer class="c-footer" id="footer">
+    <div class="c-footer__inner">
+      <div>
+        <h3 class="c-footer__brand">Jermaine Roberts</h3>
+        <p class="text-muted" style="font-size:.8rem;">Engineering secure, resilient, human-centered products.</p>
+      </div>
+      <div>
+        <h4 class="c-footer__col-title">Navigate</h4>
+        <nav aria-label="Footer">
+          <ul style="list-style:none; padding:0; margin:0; display:grid; gap:.4rem;">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div>
+        <h4 class="c-footer__col-title">Connect</h4>
+        <p style="display:flex; gap:.75rem; font-size:1.1rem;">
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        </p>
+      </div>
+    </div>
+    <div class="c-footer__bottom">
+      <span>&copy; <span id="year"></span> Jermaine Roberts</span>
+      <span>v1 Modern UI</span>
     </div>
   </footer>
 
-  <!-- Type Effect Tutorial : https://www.youtube.com/watch?v=P0X3dT-pB4E -->
-  <script src="js/typewriter.js"></script>
+  <!-- Legacy markup retained for reference (to remove after migration) -->
+  <!--
+  ...existing code...
+  <header id="header-home"> (legacy hero/nav) </header>
+  -->
+
+  <!-- Scripts -->
+  <script src="js/typewriter.js" defer></script>
+  <script>
+    // Theme toggle
+    (function(){
+      const root=document.documentElement;const saved=localStorage.getItem('theme');if(saved) root.setAttribute('data-theme',saved);const btn=document.getElementById('themeToggle');btn&&btn.addEventListener('click',()=>{const cur=root.getAttribute('data-theme')==='light'?'dark':'light';root.setAttribute('data-theme',cur);localStorage.setItem('theme',cur);});})();
+    // Nav drawer
+    (function(){const toggle=document.getElementById('navToggle');const list=document.getElementById('primaryNav');if(!toggle||!list)return;toggle.addEventListener('click',()=>{const open=list.classList.toggle('is-open');toggle.setAttribute('aria-expanded',open);document.body.classList.toggle('nav-open',open);});})();
+    // Reveal animations
+    (function(){const els=[...document.querySelectorAll('.a-reveal')];if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('is-visible'));return;}const io=new IntersectionObserver(entries=>{entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('is-visible');io.unobserve(en.target);}})},{threshold:.15});els.forEach(e=>io.observe(e));})();
+    // Accordion
+    (function(){const acc=document.getElementById('practicesAcc');if(!acc) return;acc.addEventListener('click',e=>{const btn=e.target.closest('.c-accordion__button');if(!btn)return;const item=btn.parentElement;const panel=item.querySelector('.c-accordion__panel');const open=item.classList.toggle('is-open');btn.setAttribute('aria-expanded',open);if(open){panel.hidden=false;panel.style.maxHeight=panel.scrollHeight+'px';}else{panel.style.maxHeight=0;setTimeout(()=>panel.hidden=true,240);} });})();
+    // Show more skills
+    (function(){const btn=document.getElementById('toggleMoreSkills');const more=document.getElementById('moreSkills');if(!btn||!more)return;btn.addEventListener('click',()=>{const open=more.classList.toggle('is-open');btn.setAttribute('aria-expanded',open);btn.textContent=open?'Show Less':'Show More';});})();
+    // Year
+    document.getElementById('year').textContent=new Date().getFullYear();
+    // Skill filters & detail toggles
+    (function(){
+      const filterBar=document.querySelector('.c-skill-matrix__filters');
+      const groups=[...document.querySelectorAll('.c-skill-matrix__group[data-domain]')];
+      const detailButtons=new Set();
+      document.querySelectorAll('.c-skill-chip--detail').forEach(btn=>detailButtons.add(btn));
+      function applyFilter(f){
+        groups.forEach(g=>{ if(f==='all' || g.dataset.domain===f) { g.style.display='grid'; } else { g.style.display='none'; } });
+      }
+      filterBar&&filterBar.addEventListener('click',e=>{const b=e.target.closest('[data-filter]'); if(!b)return; filterBar.querySelectorAll('[data-filter]').forEach(x=>x.classList.remove('is-active')); b.classList.add('is-active'); applyFilter(b.dataset.filter); });
+      document.addEventListener('click',e=>{const btn=e.target.closest('.c-skill-chip--detail'); if(!btn)return; const id=btn.getAttribute('data-detail-target'); const list=document.getElementById(id); if(!list)return; const open=list.hasAttribute('hidden')?true:false; if(open){ list.removeAttribute('hidden'); btn.setAttribute('aria-expanded','true'); btn.textContent='Less'; } else { list.setAttribute('hidden',''); btn.setAttribute('aria-expanded','false'); btn.textContent='More'; } });
+    })();
+  </script>
 </body>
 </html>

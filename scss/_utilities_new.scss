@@ -1,0 +1,23 @@
+// Extended Utilities (superseding legacy _utilities.scss gradually)
+// -----------------------------------------------------------------
+@use 'mixins' as m;
+@use 'variables' as v;
+.u-flex-center { @include m.flex-center; }
+.u-flex-between { @include m.flex-between; }
+.u-text-center { text-align: center; }
+.u-visually-hidden { position: absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
+
+// Spacing utilities generated from v.$space-scale
+@each $k, $val in v.$space-scale {
+  .u-m-#{$k} { margin: $val !important; }
+  .u-mx-#{$k} { margin-inline: $val !important; }
+  .u-my-#{$k} { margin-block: $val !important; }
+  .u-p-#{$k} { padding: $val !important; }
+  .u-px-#{$k} { padding-inline: $val !important; }
+  .u-py-#{$k} { padding-block: $val !important; }
+}
+
+:where(button, a).is-loading { position: relative; color: transparent !important; pointer-events: none; }
+:where(button, a).is-loading::after { content: ""; position: absolute; inset:0; margin:auto; width:1.1em; height:1.1em; border:2px solid var(--color-primary-accent); border-top-color: transparent; border-radius:50%; animation: spin 1s linear infinite; }
+
+@keyframes spin { to { transform: rotate(360deg); } }

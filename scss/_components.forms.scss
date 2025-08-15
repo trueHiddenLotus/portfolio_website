@@ -1,0 +1,18 @@
+// Forms
+// -----
+@use 'mixins' as m;
+.c-form { display:grid; gap:1.25rem; }
+.c-field { position:relative; display:flex; flex-direction:column; }
+.c-field__input { font:inherit; padding:.85rem 1rem; border:1px solid var(--color-border); background: var(--color-surface-1); color: var(--color-text); border-radius: var(--radius-sm); transition:border-color var(--transition-fast), background-color var(--transition-fast); }
+.c-field__input:hover { border-color: var(--color-text-muted); }
+.c-field__input:focus { outline:none; border-color: var(--color-primary); box-shadow:0 0 0 1px var(--color-primary); }
+
+// Floating label
+.c-field__label { position:absolute; left: .9rem; top: .95rem; font-size:.8rem; color: var(--color-text-muted); pointer-events:none; background: transparent; transition: transform var(--transition-fast), color var(--transition-fast), background-color var(--transition-fast); padding:0 .25rem; }
+.c-field__input:not(:placeholder-shown) + .c-field__label,
+.c-field__input:focus + .c-field__label { transform: translateY(-140%) scale(.85); color: var(--color-primary-accent); background: var(--color-surface-1); }
+
+.c-field.is-valid .c-field__input { border-color: var(--color-success); }
+.c-field.is-invalid .c-field__input { border-color: var(--color-error); }
+.c-field__message { font-size:.7rem; margin-top:.4rem; color: var(--color-text-muted); }
+.c-field.is-invalid .c-field__message { color: var(--color-error); }

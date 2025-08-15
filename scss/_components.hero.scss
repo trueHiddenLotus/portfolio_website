@@ -1,0 +1,15 @@
+// Hero Component
+// --------------
+@use 'mixins' as m;
+.c-hero { position:relative; min-height: min(85vh, 900px); display:flex; align-items:center; background: radial-gradient(circle at 25% 25%, rgba(0,153,255,.25), transparent 60%), var(--color-surface-0); overflow:hidden; }
+.c-hero__bg { position:absolute; inset:0; z-index:-2; background: url('../img/home.jpg') center/cover no-repeat; filter: brightness(.6) saturate(1.1); }
+.c-hero__overlay { position:absolute; inset:0; z-index:-1; background: linear-gradient(120deg, rgba(15,20,24,.85), rgba(15,20,24,.35)); }
+[data-theme="light"] .c-hero__overlay { background: linear-gradient(120deg, rgba(246,248,249,.9), rgba(246,248,249,.4)); }
+
+.c-hero__inner { max-width: 1100px; margin-inline:auto; padding: 6rem 1.25rem 4rem; }
+.c-hero__kicker { text-transform:uppercase; font-size:.75rem; letter-spacing:.2em; color: var(--color-primary-accent); font-weight:600; margin-bottom:1rem; }
+.c-hero__title { margin:0 0 1.25rem; background: var(--gradient-primary); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.c-hero__subtitle { max-width: 60ch; margin:0 0 2rem; color: var(--color-text-muted); }
+.c-hero__actions { display:flex; gap:1rem; flex-wrap:wrap; }
+
+@include m.respond(md) { .c-hero__inner { padding: 4rem 1rem 3rem; } }

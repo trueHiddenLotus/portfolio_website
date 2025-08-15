@@ -1,0 +1,16 @@
+// Skill Matrix Section
+// --------------------
+.c-skill-matrix { display:grid; gap:2rem; }
+.c-skill-matrix__filters { display:flex; flex-wrap:wrap; gap:.5rem; }
+.c-skill-matrix__group { border:1px solid var(--color-border); border-radius: var(--radius-md); padding:1.25rem 1.25rem 1.5rem; background: var(--color-surface-1); display:grid; gap:1rem; }
+.c-skill-matrix__group-title { margin:0; font-size:.9rem; text-transform:uppercase; letter-spacing:.12em; color: var(--color-text-muted); }
+.c-skill-matrix__chips { display:flex; flex-wrap:wrap; gap:.6rem; }
+
+// Collapsible rest
+.c-skill-matrix__more { max-height:0; overflow:hidden; transition:max-height var(--transition-med); }
+.c-skill-matrix__more.is-open { max-height:600px; }
+
+// Details expansion
+.c-skill-details { margin:.25rem 0 0; padding-left:1.1rem; font-size:.65rem; color: var(--color-text-muted); display:grid; gap:.2rem; list-style:disc; }
+.c-skill-details[hidden] { display:none; }
+.c-skill-chip--detail { background: var(--color-surface-3); }

@@ -1,0 +1,11 @@
+// Footer
+// ------
+@use 'mixins' as m;
+.c-footer { background: var(--color-surface-1); border-top:1px solid var(--color-border); margin-top:4rem; }
+.c-footer__inner { max-width:1200px; margin-inline:auto; padding:2.5rem 1.25rem; display:grid; gap:2.5rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.c-footer__brand { font-weight:600; font-size:1rem; margin:0 0 .75rem; }
+.c-footer__col-title { text-transform:uppercase; font-size:.7rem; letter-spacing:.14em; color: var(--color-text-muted); margin:0 0 1rem; }
+.c-footer a { color: var(--color-text-muted); text-decoration:none; font-size:.85rem; }
+.c-footer a:hover { color: var(--color-text); }
+.c-footer__bottom { display:flex; justify-content:space-between; align-items:center; padding:1rem 1.25rem; border-top:1px solid var(--color-border); font-size:.7rem; color: var(--color-text-muted); }
+@include m.respond(sm) { .c-footer__bottom { flex-direction:column; gap:.75rem; } }

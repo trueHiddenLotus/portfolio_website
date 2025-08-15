@@ -1,0 +1,38 @@
+// Mixins & Helpers
+// -----------------
+@use 'sass:map';
+
+$breakpoints: (
+  xs: 480px,
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px
+);
+
+@mixin respond($bp) {
+  $size: map.get($breakpoints, $bp);
+  @if $size { @media (max-width: $size) { @content; } } @else {
+    @warn 'Breakpoint '#{$bp}' not found in $breakpoints map.';
+  }
+}
+
+@mixin fluid-type($min, $max, $minVW: 320, $maxVW: 1280) {
+  font-size: clamp(#{$min}rem, calc(#{$min}rem + (#{$max - $min}) * ((100vw - #{$minVW}px) / (#{$maxVW - $minVW}))), #{$max}rem);
+}
+
+@mixin focus-ring($color: var(--color-primary)) {
+  outline: 2px solid $color;
+  outline-offset: 2px;
+}
+
+@mixin reduce-motion { @media (prefers-reduced-motion: reduce) { @content; } }
+
+@mixin flex-center { display: flex; align-items: center; justify-content: center; }
+@mixin flex-between { display: flex; align-items: center; justify-content: space-between; }
+
+@mixin elevation($level: 1) {
+  @if $level == 1 { box-shadow: var(--shadow-1); }
+  @else if $level == 2 { box-shadow: var(--shadow-2); }
+  @else if $level == 3 { box-shadow: var(--shadow-3); }
+}

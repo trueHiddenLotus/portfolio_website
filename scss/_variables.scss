@@ -1,0 +1,117 @@
+// Design Tokens & Semantic Variables (replacing _config.scss)
+// ---------------------------------------------------------
+// Core scales
+$website-width: 1280px;
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 16px;
+
+// Legacy color variables (kept for backward compatibility during migration)
+$main-color: #0099ff;
+$light-color: #f4f4f4;
+$medium-color: #ccc;
+$dark-color: #12171c; // deepened for contrast
+$accent-color: #5cc2ff;
+$success-color: #2eaf6e;
+$warn-color: #ffb347;
+$error-color: #ff4d61;
+$bg-image: url("../img/home.jpg");
+
+// Neutral scale
+$neutral-0: #ffffff;
+$neutral-50: #f6f8f9;
+$neutral-100: #eef1f3;
+$neutral-200: #d9dee2;
+$neutral-300: #b8c0c5;
+$neutral-400: #97a1a8;
+$neutral-500: #76828b;
+$neutral-600: #55626d;
+$neutral-700: #3c4953;
+$neutral-800: #25323b;
+$neutral-900: #141d23;
+
+// Elevation shadows (maps for programmatic class generation later if needed)
+$elevations: (
+  0: none,
+  1: 0 1px 2px rgba(0,0,0,.12),
+  2: 0 2px 4px rgba(0,0,0,.16),
+  3: 0 4px 12px rgba(0,0,0,.18),
+  4: 0 8px 24px rgba(0,0,0,.20)
+);
+
+// Spacing scale (multiples of 4px -> rem at 16px root)
+$space-scale: (
+  0: 0,
+  0_5: .25rem,
+  1: .5rem,
+  1_5: .75rem,
+  2: 1rem,
+  3: 1.5rem,
+  4: 2rem,
+  6: 3rem,
+  8: 4rem
+);
+
+// Export CSS custom properties for runtime theming
+:root {
+  // Base / surfaces
+  --color-bg: #0f1418;
+  --color-surface-0: #0f1418;
+  --color-surface-1: #182026;
+  --color-surface-2: #1f2a31;
+  --color-surface-3: #27343c;
+  --color-border: #2f3d46;
+
+  // Text
+  --color-text: #f2f6f8;
+  --color-text-muted: #93a1ab;
+
+  // Brand
+  --color-primary: #0099ff;
+  --color-primary-accent: #5cc2ff;
+  --color-success: #2eaf6e;
+  --color-warn: #ffb347;
+  --color-error: #ff4d61;
+
+  // Gradients
+  --gradient-primary: linear-gradient(135deg, #0099ff, #5cc2ff);
+
+  // Radii
+  --radius-sm: #{$radius-sm};
+  --radius-md: #{$radius-md};
+  --radius-lg: #{$radius-lg};
+
+  // Elevation (layered for glass aesthetic)
+  --shadow-1: 0 2px 4px -1px rgba(0,0,0,.4);
+  --shadow-2: 0 4px 16px -2px rgba(0,0,0,.45);
+  --shadow-3: 0 8px 28px -4px rgba(0,0,0,.5);
+
+  // Transitions
+  --transition-fast: 120ms ease;
+  --transition-med: 240ms cubic-bezier(.4, .2, .2, 1);
+
+  // Typography (initial values; refined in _typography.scss)
+  --font-sans: 'Inter', 'Dosis', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, 'Courier New', monospace;
+
+  // Z-index
+  --z-nav: 50;
+  --z-overlay: 100;
+  --z-modal: 200;
+  --z-toast: 300;
+}
+
+// Light theme overrides
+[data-theme="light"] {
+  --color-bg: #f6f8f9;
+  --color-surface-0: #ffffff;
+  --color-surface-1: #ffffff;
+  --color-surface-2: #f1f4f6;
+  --color-surface-3: #e8edf0;
+  --color-border: #d9dee2;
+  --color-text: #1c2327;
+  --color-text-muted: #5a6a74;
+  --shadow-1: 0 1px 2px rgba(0,0,0,.08);
+  --shadow-2: 0 2px 8px rgba(0,0,0,.08);
+  --shadow-3: 0 4px 20px rgba(0,0,0,.10);
+}
